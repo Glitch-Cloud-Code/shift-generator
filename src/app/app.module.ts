@@ -34,7 +34,7 @@ import { WorkPeriodComponent } from './components/work-period/work-period.compon
     BrowserAnimationsModule,
     MaterialModule,
     CommonModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule.setLocale("uk-UA")
   ],
   providers: [],
   bootstrap: [AppComponent]
