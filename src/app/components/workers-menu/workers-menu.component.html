@@ -1,0 +1,16 @@
+<div class="workers-list-container">
+  <button mat-raised-button class="add-shift-btn" (click)="addWorker()">Add
+    worker</button>
+  <mat-list>
+    <div [@inOutAnimation] *ngFor="let worker of workers; index as i" class="worker">
+        <mat-action-list>
+          <button mat-list-item (click)="selectWorker(worker)" [ngClass]="{'selected': isWorkerSelected(worker)}"> {{worker.name}}
+            <button mat-icon-button class="remove-worker-btn" (click)="removeWorker(i, $event)">
+              <mat-icon aria-hidden="false">delete</mat-icon>
+            </button>
+          </button>
+        </mat-action-list>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+</div>

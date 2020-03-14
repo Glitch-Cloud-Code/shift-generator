@@ -1,0 +1,49 @@
+<div id="properties-container">
+  <div class="card">
+    <h3 class="card-header">Work Period</h3>
+    <div class="card-body work-period-container">
+      <app-work-period></app-work-period>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-header">Company working hours</h3>
+    <div class="card-body weekdays-container">
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Monday')" [workday]="workDays.monday">
+      </app-weekday-input>
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Tuesday')" [workday]="workDays['tuesday']">
+      </app-weekday-input>
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Wednesday')" [workday]="workDays['wednesday']">
+      </app-weekday-input>
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Thursday')" [workday]="workDays['thursday']">
+      </app-weekday-input>
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Friday')" [workday]="workDays['friday']">
+      </app-weekday-input>
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Saturday')" [workday]="workDays['saturday']">
+      </app-weekday-input>
+      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Sunday')" [workday]="workDays['sunday']">
+      </app-weekday-input>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-header">Shifts</h3>
+    <div class="card-body shifts-container">
+      <app-shifts [selectedWorkday]="selectedWorday"></app-shifts>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-header">Workers</h3>
+    <div class="card-body workers-container">
+      <app-workers-menu (selectedWorker)="selectedWorker = $event"></app-workers-menu>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-header">Worker properties</h3>
+    <div class="card-body workers-container">
+      <app-worker-properties [selectedWorker]="selectedWorker"></app-worker-properties>
+    </div>
+  </div>
+</div>

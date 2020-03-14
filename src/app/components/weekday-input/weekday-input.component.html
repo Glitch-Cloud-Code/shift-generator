@@ -1,0 +1,39 @@
+<div class="weekday-input-container">
+  <div class="small-screen-inputs-container">
+    <mat-form-field [@inOutAnimation] class="form-field">
+      <mat-label>From</mat-label>
+      <input matInput placeholder="From" [(ngModel)]="_values.from" #fromInput [ngxTimepicker]="fromPicker"
+        [format]="24" readonly>
+      <ngx-material-timepicker [theme]="darkTheme" (timeSet)="timeSet()" #fromPicker>
+      </ngx-material-timepicker>
+    </mat-form-field>
+  </div>
+  <a (click)="click()" [disabled]="disableButton" mat-raised-button class="weekday-button" [ngClass]="{'active': checkInputTime(), 'selected': selected}">
+    {{_workday.name}}
+  </a>
+  <div class="small-screen-inputs-container">
+    <mat-form-field [@inOutAnimation] class="form-field">
+      <mat-label>To</mat-label>
+      <input matInput placeholder="To" [(ngModel)]="_values.to" #toInput [ngxTimepicker]="toPicker" [format]="24"
+        readonly>
+      <ngx-material-timepicker [theme]="darkTheme" (timeSet)="timeSet()" #toPicker>
+      </ngx-material-timepicker>
+    </mat-form-field>
+  </div>
+  <div class="large-screen-inputs-container" [@inOutAnimation]>
+    <mat-form-field class="form-field">
+      <mat-label>From</mat-label>
+      <input matInput placeholder="From" [(ngModel)]="_values.from" #fromInput [ngxTimepicker]="fromPicker"
+        [format]="24" readonly>
+      <ngx-material-timepicker [theme]="darkTheme" (timeSet)="timeSet()" #fromPicker>
+      </ngx-material-timepicker>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <mat-label>To</mat-label>
+      <input matInput placeholder="To" [(ngModel)]="_values.to" #toInput [ngxTimepicker]="toPicker" [format]="24"
+        readonly>
+      <ngx-material-timepicker [theme]="darkTheme" (timeSet)="timeSet()" #toPicker>
+      </ngx-material-timepicker>
+    </mat-form-field>
+  </div>
+</div>

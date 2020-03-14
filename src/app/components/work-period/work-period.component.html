@@ -1,0 +1,14 @@
+<div class="work-period-container">
+  <mat-form-field>
+    <mat-label>From</mat-label>
+    <input matInput [matDatepicker]="workPeriodFromPicker">
+    <mat-datepicker-toggle matSuffix [for]="workPeriodFromPicker"></mat-datepicker-toggle>
+    <mat-datepicker #workPeriodFromPicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>To</mat-label>
+    <input matInput [matDatepicker]="workPeriodToPicker">
+    <mat-datepicker-toggle matSuffix [for]="workPeriodToPicker"></mat-datepicker-toggle>
+    <mat-datepicker #workPeriodToPicker></mat-datepicker>
+  </mat-form-field>
+</div>

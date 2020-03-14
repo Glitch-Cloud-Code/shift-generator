@@ -1,0 +1,28 @@
+<mat-slide-toggle class="same-shifts-toggle">Same shifts for all weekdays</mat-slide-toggle>
+<br>
+<br>
+<div *ngIf="selectedWorkday; else noSelection" class="shifts-container">
+  <div class="row controls-container">
+    <button mat-raised-button class="add-shift-btn" (click)="addShift()">Add
+      shift change</button>
+  </div>
+  <div class="shift" [@inOutAnimation]
+    *ngFor="let shiftBreak of selectedWorkday.shiftBreaks; index as i; trackBy:trackItem">
+    <mat-form-field class="form-field">
+      <mat-label>At</mat-label>
+      <input matInput placeholder="To" [(ngModel)]="selectedWorkday.shiftBreaks[i]" #shiftFromInput
+        [ngxTimepicker]="shiftFromPicker" [format]="24" readonly>
+      <ngx-material-timepicker [theme]="darkTheme" #shiftFromPicker>
+      </ngx-material-timepicker>
+    </mat-form-field>
+    <button mat-icon-button class="remove-shift-btn" (click)="removeShift(i)">
+      <mat-icon aria-hidden="false">delete</mat-icon>
+    </button>
+  </div>
+</div>
+
+<ng-template #noSelection>
+  <div class="shifts-container centered">
+    Please select a workday
+  </div>
+</ng-template>

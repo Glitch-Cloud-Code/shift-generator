@@ -1,0 +1,51 @@
+.weekday-button {
+  min-width: 6rem;
+  height: fit-content;
+  margin: 5px;
+}
+
+.weekday-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.large-screen-inputs-container {
+  margin-top: 10px;
+}
+
+.small-screen-inputs-container {
+  display: none;
+}
+
+.form-field {
+  max-width: 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.active {
+  background-color: #27ae60 !important;
+  color: white !important;
+}
+
+.selected {
+  border: 2px solid darkolivegreen;
+}
+
+@media (max-width: 700px) {
+  .weekdays-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .weekday-input-container {
+    flex-direction: row;
+  }
+  .large-screen-inputs-container {
+    display: none;
+  }
+  .small-screen-inputs-container {
+    display: flex;
+    margin: 5px;
+  }
+
+}

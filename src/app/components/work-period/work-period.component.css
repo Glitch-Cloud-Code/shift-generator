@@ -1,0 +1,12 @@
+.work-period-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+@media (max-width: 700px) {
+  .work-period-container {
+    width: 85vw;
+  }
+}

@@ -1,0 +1,41 @@
+#properties-container {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #1A1A1A;
+    width: 100%;
+    min-height: 90%;
+    justify-content: space-evenly;
+}
+
+.card {
+    margin: 10px;
+    height: fit-content;
+}
+
+.card-body {
+  display: flex;
+  height: fit-content;
+  min-height: 7rem;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-full-width {
+    width: 100%;
+}
+
+.weekdays-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 700px) {
+  .weekdays-container {
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+  }
+}

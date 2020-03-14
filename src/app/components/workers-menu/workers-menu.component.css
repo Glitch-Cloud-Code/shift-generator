@@ -1,0 +1,22 @@
+.workers-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.remove-worker-btn {
+  margin-left: auto;
+  justify-self: center;
+}
+
+.selected {
+  border: 2px solid darkolivegreen;
+}
+
+@media (max-width: 700px) {
+  .workers-list-container {
+    width: 85vw;
+    min-width: 0px;
+  }
+}

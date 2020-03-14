@@ -1,0 +1,45 @@
+.shifts-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.same-shifts-toggle {
+  display: table-row;
+  float: right;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+
+.controls-container * {
+  flex: 1;
+  margin: 5px;
+}
+
+.add-shift-btn {
+  margin: 10px !important;
+}
+
+.remove-shift-btn {
+  float: right;
+  margin-bottom: 5px;
+}
+
+.remove-shift-btn mat-icon {
+  vertical-align: bottom;
+}
+
+.shift {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .shifts-container {
+    width: 85vw;
+    min-width: 0px;
+  }
+}

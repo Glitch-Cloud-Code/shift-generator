@@ -1,0 +1,34 @@
+<div *ngIf="selectedWorker; else noSelection" class="worker-properties-container">
+
+  <div class="row">
+    <mat-form-field class="worker-name-input-container">
+      <mat-label>Worker name</mat-label>
+      <input matInput [(ngModel)]="selectedWorker.name">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['monday']">
+    </app-weekday-input>
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['tuesday']">
+    </app-weekday-input>
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['wednesday']">
+    </app-weekday-input>
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['thursday']">
+    </app-weekday-input>
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['friday']">
+    </app-weekday-input>
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['saturday']">
+    </app-weekday-input>
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['sunday']">
+    </app-weekday-input>
+  </div>
+
+</div>
+
+<ng-template #noSelection>
+  <div class="worker-properties-container centered">
+    Please select a worker
+  </div>
+
+</ng-template>
