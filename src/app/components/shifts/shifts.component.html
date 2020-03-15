@@ -1,7 +1,7 @@
-<mat-slide-toggle class="same-shifts-toggle">Same shifts for all weekdays</mat-slide-toggle>
+<mat-slide-toggle [(ngModel)]="_sameShifts" (change)="sameShiftsChanged()" class="same-shifts-toggle">Same shifts for all weekdays</mat-slide-toggle>
 <br>
 <br>
-<div *ngIf="selectedWorkday; else noSelection" class="shifts-container">
+<div [@inOutAnimation] *ngIf="selectedWorkday; else noSelection" class="shifts-container">
   <div class="row controls-container">
     <button mat-raised-button class="add-shift-btn" (click)="addShift()">Add
       shift change</button>

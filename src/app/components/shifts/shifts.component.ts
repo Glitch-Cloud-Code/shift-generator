@@ -30,11 +30,12 @@ import { IWorkDay } from 'src/app/interfaces/IWorkDay';
 export class ShiftsComponent implements OnInit {
 
   @Input() selectedWorkday: IWorkDay;
+  @Output() sameShifts: EventEmitter<boolean> = new EventEmitter();
 
-  _selectedWorday: any;
   constructor() { }
 
   public darkTheme = darkTheme;
+  public _sameShifts: boolean = false;
 
   ngOnInit(): void {
   }
@@ -45,6 +46,10 @@ export class ShiftsComponent implements OnInit {
 
   public removeShift(i) {
     this.selectedWorkday.shiftBreaks.splice(i, 1);
+  }
+
+  public sameShiftsChanged() {
+    this.sameShifts.emit(this._sameShifts);
   }
 
   public trackItem(index: number, value: string) {

@@ -12,4 +12,8 @@ export class BottomPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public calculate() {
+
+  }
+
 }

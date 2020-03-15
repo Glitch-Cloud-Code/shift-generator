@@ -9,19 +9,19 @@
   <div class="card">
     <h3 class="card-header">Company working hours</h3>
     <div class="card-body weekdays-container">
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Monday')" [workday]="workDays.monday">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Monday')" [workday]="workDays.monday">
       </app-weekday-input>
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Tuesday')" [workday]="workDays['tuesday']">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Tuesday')" [workday]="workDays['tuesday']">
       </app-weekday-input>
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Wednesday')" [workday]="workDays['wednesday']">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Wednesday')" [workday]="workDays['wednesday']">
       </app-weekday-input>
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Thursday')" [workday]="workDays['thursday']">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Thursday')" [workday]="workDays['thursday']">
       </app-weekday-input>
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Friday')" [workday]="workDays['friday']">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Friday')" [workday]="workDays['friday']">
       </app-weekday-input>
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Saturday')" [workday]="workDays['saturday']">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Saturday')" [workday]="workDays['saturday']">
       </app-weekday-input>
-      <app-weekday-input (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Sunday')" [workday]="workDays['sunday']">
+      <app-weekday-input [disableButton]="bSameShifts" (select)="workDaySelected($event)" [selected]="isWorkDaySelected('Sunday')" [workday]="workDays['sunday']">
       </app-weekday-input>
     </div>
   </div>
@@ -29,7 +29,7 @@
   <div class="card">
     <h3 class="card-header">Shifts</h3>
     <div class="card-body shifts-container">
-      <app-shifts [selectedWorkday]="selectedWorday"></app-shifts>
+      <app-shifts (sameShifts)="onSameShiftsChanged($event)" [selectedWorkday]="selectedWorday"></app-shifts>
     </div>
   </div>
 

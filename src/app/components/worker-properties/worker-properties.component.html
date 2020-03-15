@@ -1,4 +1,7 @@
-<div *ngIf="selectedWorker; else noSelection" class="worker-properties-container">
+<div [@inOutAnimation] *ngIf="selectedWorker; else noSelection" class="worker-properties-container">
+
+  <mat-slide-toggle [(ngModel)]="selectedWorker.bAvailableAtTheSameTimeEveryday" class="same-shifts-toggle">Same shifts for all weekdays</mat-slide-toggle>
+  <br>
 
   <div class="row">
     <mat-form-field class="worker-name-input-container">
@@ -6,8 +9,10 @@
       <input matInput [(ngModel)]="selectedWorker.name">
     </mat-form-field>
   </div>
-
   <div class="row">
+    <mat-label>Availability</mat-label>
+  </div>
+  <div [@inOutAnimation] *ngIf="!selectedWorker.bAvailableAtTheSameTimeEveryday; else sameWorkdayInput" class="row">
     <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['monday']">
     </app-weekday-input>
     <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['tuesday']">
@@ -30,5 +35,11 @@
   <div class="worker-properties-container centered">
     Please select a worker
   </div>
+</ng-template>
 
+<ng-template #sameWorkdayInput>
+  <div class="row">
+    <app-weekday-input [disableButton]="true" [workday]="selectedWorker.available['all']">
+    </app-weekday-input>
+  </div>
 </ng-template>

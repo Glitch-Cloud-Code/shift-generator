@@ -37,8 +37,13 @@ export class PropertiesComponent implements OnInit {
   public workDays: IWorkDays = new IWorkDays();
   public selectedWorday: IWorkDay;
   public selectedWorker: IWorker;
+  public bSameShifts = false;
+  public sameShiftsWorkday:IWorkDay = new IWorkDay();
+  public lastSelectedWorkday:IWorkDay;
 
   public workDaySelected(workDayName) {
+    if (this.bSameShifts)
+      return;
     if (this.selectedWorday === this.workDays[workDayName])
       this.selectedWorday = null;
     else
@@ -49,5 +54,15 @@ export class PropertiesComponent implements OnInit {
     if (isNullOrUndefined(this.selectedWorday))
       return false;
     return name === this.selectedWorday.name;
+  }
+
+  public onSameShiftsChanged(b:boolean) {
+    this.bSameShifts = b;
+    if (b) {
+      this.lastSelectedWorkday = this.selectedWorday;
+      this.selectedWorday = this.sameShiftsWorkday;
+    } else {
+      this.selectedWorday = this.lastSelectedWorkday;
+    }
   }
 }

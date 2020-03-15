@@ -7,7 +7,8 @@ export class IWorkDays {
   thursday:IWorkDay;
   friday:IWorkDay;
   saturday:IWorkDay;
-  sunday:IWorkDay
+  sunday:IWorkDay;
+  all: IWorkDay;
 
   constructor () {
     return {
@@ -17,7 +18,8 @@ export class IWorkDays {
       thursday: {name: "Thursday", workTime: {from: "", to: ""}, shiftBreaks: []},
       friday: {name: "Friday", workTime: {from: "", to: ""}, shiftBreaks: []},
       saturday: {name: "Saturday", workTime: {from: "", to: ""}, shiftBreaks: []},
-      sunday: {name: "Sunday", workTime: {from: "", to: ""}, shiftBreaks: []}
+      sunday: {name: "Sunday", workTime: {from: "", to: ""}, shiftBreaks: []},
+      all: {name: "All", workTime: {from: "", to: ""}, shiftBreaks: []}
     }
   }
 }

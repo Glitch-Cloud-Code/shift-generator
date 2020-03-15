@@ -48,4 +48,8 @@
     margin: 5px;
   }
 
+  .weekday-button {
+    min-width: 13rem;
+  }
+
 }

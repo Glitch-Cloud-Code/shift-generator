@@ -10,4 +10,12 @@ export class IWorkDay {
   // Edit: Solved by using trackBy on ngFor.
   // stackoverflow: https://stackoverflow.com/questions/60672162/how-to-avoid-enter-leave-animations-on-value-change-when-using-ngfor/60673050#60673050
   shiftBreaks: string[];
+
+  constructor () {
+    return {
+      name: "",
+      workTime: {from: "", to: ""},
+      shiftBreaks: []
+    }
+  }
 }
