@@ -1,16 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { darkTheme } from "../../../assets/ts/globals";
 import { trigger, transition, style, animate } from "@angular/animations";
-import { ITimeSpan } from "src/app/interfaces/ITimeSpan";
 import { IWorkDays } from "src/app/interfaces/IWorkDays";
-import { IWorkDay } from 'src/app/interfaces/IWorkDay';
-import { isNullOrUndefined } from 'util';
-import { IWorker } from 'src/app/interfaces/IWorker';
+import { IWorkDay } from "src/app/interfaces/IWorkDay";
+import { isNullOrUndefined } from "util";
+import { IWorker } from "src/app/interfaces/IWorker";
+import { CalculationService } from "src/app/services/calculationService";
+import { ITimeSpan } from 'src/app/interfaces/ITimeSpan';
+import { WorkersMenuComponent } from '../workers-menu/workers-menu.component';
+import { WorkPeriodComponent } from '../work-period/work-period.component';
 
 @Component({
   selector: "app-properties",
   templateUrl: "./properties.component.html",
   styleUrls: ["./properties.component.css"],
+  providers: [CalculationService],
   animations: [
     trigger("inOutAnimation", [
       transition(":enter", [
@@ -30,7 +34,7 @@ import { IWorker } from 'src/app/interfaces/IWorker';
   ]
 })
 export class PropertiesComponent implements OnInit {
-  constructor() {}
+  constructor(private calculationService: CalculationService) {}
   ngOnInit(): void {}
 
   public darkTheme = darkTheme;
@@ -38,25 +42,27 @@ export class PropertiesComponent implements OnInit {
   public selectedWorday: IWorkDay;
   public selectedWorker: IWorker;
   public bSameShifts = false;
-  public sameShiftsWorkday:IWorkDay = new IWorkDay();
-  public lastSelectedWorkday:IWorkDay;
+  public sameShiftsWorkday: IWorkDay = new IWorkDay();
+  public lastSelectedWorkday: IWorkDay;
+  public workPeriod: ITimeSpan;
+
+  @ViewChild(WorkersMenuComponent) workersMenuComponent;
+  @ViewChild(WorkPeriodComponent) workPeriodComponent;
+
 
   public workDaySelected(workDayName) {
-    if (this.bSameShifts)
-      return;
+    if (this.bSameShifts) return;
     if (this.selectedWorday === this.workDays[workDayName])
       this.selectedWorday = null;
-    else
-      this.selectedWorday = this.workDays[workDayName];
+    else this.selectedWorday = this.workDays[workDayName];
   }
 
   public isWorkDaySelected(name) {
-    if (isNullOrUndefined(this.selectedWorday))
-      return false;
+    if (isNullOrUndefined(this.selectedWorday)) return false;
     return name === this.selectedWorday.name;
   }
 
-  public onSameShiftsChanged(b:boolean) {
+  public onSameShiftsChanged(b: boolean) {
     this.bSameShifts = b;
     if (b) {
       this.lastSelectedWorkday = this.selectedWorday;
@@ -64,5 +70,17 @@ export class PropertiesComponent implements OnInit {
     } else {
       this.selectedWorday = this.lastSelectedWorkday;
     }
+  }
+
+  public calculate() {
+    this.calculationService.calculate(
+      {
+        workPeriod: {from:  this.workPeriodComponent.from, to: this.workPeriodComponent.to},
+        workers: this.workersMenuComponent.workers,
+        companyWorkingHours: this.workDays,
+        sameShiftsWorkday: this.sameShiftsWorkday,
+        bSameShifts: this.bSameShifts
+      }
+    );
   }
 }

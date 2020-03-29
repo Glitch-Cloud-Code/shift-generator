@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ITimeSpan } from 'src/app/interfaces/ITimeSpan';
 
 @Component({
   selector: 'app-work-period',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./work-period.component.css']
 })
 export class WorkPeriodComponent implements OnInit {
+
+  @Output() workPeriod: EventEmitter<ITimeSpan> = new EventEmitter();
+
+  public from: Date;
+  public to: Date;
 
   constructor() { }
 

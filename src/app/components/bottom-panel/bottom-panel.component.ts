@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-bottom-panel',
@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BottomPanelComponent implements OnInit {
 
+  @Output() calculate = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public calculate() {
-
+  public _calculate() {
+    this.calculate.emit();
   }
 
 }

@@ -2,7 +2,7 @@
   <div class="small-screen-inputs-container">
     <mat-form-field [@inOutAnimation] class="form-field">
       <mat-label>From</mat-label>
-      <input matInput placeholder="From" [(ngModel)]="_values.from" #fromInput [ngxTimepicker]="fromPicker"
+      <input matInput placeholder="From" [(ngModel)]="_values.from" [ngxTimepicker]="fromPicker"
         [format]="24" readonly>
       <ngx-material-timepicker [theme]="darkTheme" (timeSet)="timeSet()" #fromPicker>
       </ngx-material-timepicker>
@@ -23,7 +23,7 @@
   <div class="large-screen-inputs-container" [@inOutAnimation]>
     <mat-form-field class="form-field">
       <mat-label>From</mat-label>
-      <input matInput placeholder="From" [(ngModel)]="_values.from" #fromInput [ngxTimepicker]="fromPicker"
+      <input matInput placeholder="From" [(ngModel)]="_values.from" [ngxTimepicker]="fromPicker"
         [format]="24" readonly>
       <ngx-material-timepicker [theme]="darkTheme" (timeSet)="timeSet()" #fromPicker>
       </ngx-material-timepicker>

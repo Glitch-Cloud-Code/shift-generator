@@ -14,8 +14,33 @@ import { CommonModule } from '@angular/common';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ShiftsComponent } from './components/shifts/shifts.component';
 import { WorkPeriodComponent } from './components/work-period/work-period.component'
+import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 
+const MY_DATE_FORMAT = {
+  parse: {
+      dateInput: { day: 'numeric', month: 'numeric', year: 'numeric' }
+  },
+  display: {
+      dateInput: 'input',
+      monthYearLabel: { year: 'numeric', month: 'short' },
+      dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
+      monthYearA11yLabel: { year: 'numeric', month: 'long' },
+  }
+};
 
+export class AppDateAdapter extends NativeDateAdapter {
+
+  format(date: Date, displayFormat: Object): string {
+      if (displayFormat === 'input') {
+          const day = date.getDate();
+          const month = date.getMonth() + 1;
+          const year = date.getFullYear();
+          return `${day}/${month}/${year}`;
+      } else {
+          return date.toDateString();
+      }
+  }
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +61,8 @@ import { WorkPeriodComponent } from './components/work-period/work-period.compon
     CommonModule,
     NgxMaterialTimepickerModule.setLocale("uk-UA")
   ],
-  providers: [],
+  providers: [{provide: DateAdapter, useClass: AppDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

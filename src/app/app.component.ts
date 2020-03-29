@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { PropertiesComponent } from './components/properties/properties.component';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'schedule-generator';
+
+  @ViewChild(PropertiesComponent) propertiesComponent;
+
+  public onCalculate() {
+    this.propertiesComponent.calculate();
+  }
+
 }
