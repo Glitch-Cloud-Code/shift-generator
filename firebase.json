@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/schedule-generator",
+    "public": "dist/shift-generator",
     "ignore": [
       "firebase.json",
       "**/.*",

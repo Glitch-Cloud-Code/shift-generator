@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkersPropertiesComponent } from './workers-properties.component';
+import { WorkerPropertiesComponent } from './worker-properties.component';
 
 describe('WorkersPropertiesComponent', () => {
-  let component: WorkersPropertiesComponent;
-  let fixture: ComponentFixture<WorkersPropertiesComponent>;
+  let component: WorkerPropertiesComponent;
+  let fixture: ComponentFixture<WorkerPropertiesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WorkersPropertiesComponent ]
+      declarations: [ WorkerPropertiesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WorkersPropertiesComponent);
+    fixture = TestBed.createComponent(WorkerPropertiesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
